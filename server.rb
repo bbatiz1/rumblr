@@ -4,7 +4,7 @@ require 'sinatra/flash'
 require './models'
 
 set :port, 3000
-set :database, {adapter: "sqlite3", database: "users.sqlite3"}
+set :database, {adapter: "postgresql", database: "users.postgresql", password: ENV['POSTGRES_PW']}
 enable :sessions
 
 get '/' do
