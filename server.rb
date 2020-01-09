@@ -4,13 +4,13 @@ require 'sinatra/flash'
 require './models'
 
 set :port, 3000
-set :database, {adapter: "postgresql", database: "users.postgresql", password: ENV['POSTGRES_PW']}
+set :database, {url: ENV['DATABASE_URL']}
 enable :sessions
 
 get '/' do
   erb :home
 end
- 
+
 get '/login' do
   erb :login
 end
