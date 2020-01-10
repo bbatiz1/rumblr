@@ -2,16 +2,32 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="home.css">
     <title></title>
   </head>
   <body>
-    <nav>
-      <a href="#">Home</a>
-      <a href="/signup">Sign Up</a>
-      <a href="/profile">Profile</a>
-      <a href="/login">Log in</a>
-      <a href="/logout">Log out</a>
-    </nav>
+    <header>
+
+  <div class="container">
+
+      <h1 class="logo">Rumblr</h1>
+
+      <nav class="site-nav">
+          <ul>
+
+            <li><a href="/profile"><i class="fa fa-pencil site-nav--icon"></i>Profile</a></li>
+            <li><a href=""><i class="fa fa-usd site-nav--icon"></i>Settings</a></li>
+            <li><a href="/logout"><i class="fa fa-envelope site-nav--icon"></i>Logout</a></li>
+          </ul>
+      </nav>
+
+      <div class="menu-toggle">
+        <div class="hamburger"></div>
+      </div>
+
+    </div>
+  </header>
+
     <%= yield %>
   </body>
 </html>

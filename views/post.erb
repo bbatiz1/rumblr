@@ -1,0 +1,12 @@
+
+    <a class="myProfile" href="/feed">My Profile</a>
+    <div class="posts">
+      <%= @post.each do |post| %>
+      <div class="pot">
+        <p><%= post.title %></p>
+        <p><%= post.content %></p>
+
+    <p> <%= "Posted by, #{post.user.firstname} #{post.user.lastname}." %> </p>
+      </div>
+        <% end %>
+    </div>
