@@ -1,10 +1,11 @@
 <% if flash[:error] %>
   <% flash[:error] %>
 <% end %>
-
+<div class="form">  
 <h1>Login</h1>
   <form action='/login' method='post'>
     <input type="email" name="email" placeholder="email"><br>
     <input type="password" name="password" placeholder="password"><br>
     <input type="Submit" placeholder='Submit'><br>
 </form>
+</div>
