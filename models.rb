@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 end
 
 class Post < ActiveRecord::Base
-  validates :title, :content, :user_id, length: { maxium: 300}
+  validates :title, :content, :user_id, length: {minimum: 12, maxium: 300}
 
   belongs_to :user
 end

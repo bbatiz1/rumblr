@@ -1,12 +1,17 @@
+<div id="pageContent">
 
-    <a class="myProfile" href="/feed">My Profile</a>
-    <div class="posts">
-      <%= @post.each do |post| %>
-      <div class="pot">
-        <p><%= post.title %></p>
-        <p><%= post.content %></p>
+      <form id="Postbox" action="/post" method="post">
+          <textarea rows="1" cols="70" class="blog" name="title" type="text" placeholder="Title"></textarea><br>
+          <textarea rows="4" cols="70" class="blog" type="text" name="body" placeholder="What are you thinking..."></textarea><br>
+          <input class="blog" type="submit" value="post">
+        </form>
 
-    <p> <%= "Posted by, #{post.user.firstname} #{post.user.lastname}." %> </p>
-      </div>
-        <% end %>
-    </div>
+        <center><h4><%= session[:post_title]%> <br></h4>
+        <%= session[:post_content]%><center>
+</div>
+
+<!-- <form class="textbox" action="/profile" method="post">
+  <input type="string" placeholder="What's on your mind?"><br>
+  <textarea name="feed[content]" placeholder="type away" rows="10" cols="30"></textarea>
+  <input type="Submit" placeholder="Submit"><br>
+</form> -->

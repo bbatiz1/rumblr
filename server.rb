@@ -8,6 +8,10 @@ set :port, 3000
 set :database, {url: ENV['DATABASE_URL']}
 enable :sessions
 
+get '/' do
+  erb :pghome
+end
+
 get '/home' do
   erb :home
 end
@@ -47,27 +51,25 @@ get '/profile' do
   erb :profile
 end
 
-get'/show' do
-  @posts = Post.order(created_at: :desc).all
-  erb :show
+get '/post' do
+  erb :post
 end
 
-get '/blogs' do
-  erb :blogs
-end
-post '/blogs' do
-  @post = Post.new(title: params[:blog]['title'], content: params[:blog]['content'], user_id: session[user.id])
+post '/post' do
+  @post = Post.new(title: params['topic'], body: params['content'], user_id: session[:user_id])
   if @post.valid?
+    session[:post_title] = @post.post_title
+    session[:post_content] = @post.post_content
     @post.save
-    redirect '/show'
-  else
-    erb :profile
+    redirect "/home"
 end
-
+get '/feed' do
+  erb :feed
+end
 get '/logout' do
-  session[:user_id] = nil
+  session.clear
+  p "You've successfully logged out"
   redirect '/login'
-  'You are logged out!'
 end
 end
 #this is a piece of code i took
